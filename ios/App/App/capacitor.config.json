@@ -1,0 +1,11 @@
+{
+  "appId": "hello_nem2_ionic.opening_line.jp",
+  "appName": "HelloNem2Ionic",
+  "bundledWebRuntime": false,
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 60000
+    }
+  }
+}
