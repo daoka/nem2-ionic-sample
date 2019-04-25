@@ -1,5 +1,7 @@
 # nem2-ionic-sample
 
+This is a sample using ionic + vue.js + nem2-sdk.
+
 ## Project setup
 ```
 npm install

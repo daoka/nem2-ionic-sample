@@ -5,7 +5,7 @@
   "webDir": "www",
   "plugins": {
     "SplashScreen": {
-      "launchShowDuration": 60000
+      "launchShowDuration": 3000
     }
   }
 }

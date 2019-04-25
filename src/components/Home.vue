@@ -7,11 +7,14 @@
     </ion-header>
     <ion-content class="ion-padding">
       <ion-item>
-        <ion-input v-model="address" placeholder="アドレスを入力してください" :value="address"></ion-input>
+        <ion-input
+         v-bind:value="address"
+         v-on:input="address = $event.target.value"
+        placeholder="input your address"></ion-input>
       </ion-item>
       <ion-item-divider>
         <ion-label>
-          公開鍵
+          Public Key
         </ion-label>
       </ion-item-divider>
       <ion-item>
@@ -19,7 +22,7 @@
       </ion-item>
       <ion-item-divider>
         <ion-label>
-          保有モザイク一覧
+          Owned mosaics
         </ion-label>
       </ion-item-divider>
       <ion-list>
@@ -28,15 +31,15 @@
           <ion-note slot="end">{{ m.amount.compact() }}</ion-note>
         </ion-item>
       </ion-list>
-      <ion-button expand="block" @click="onClickButton()">アカウント情報を取得</ion-button>
+      <ion-button expand="block" @click="onClickButton()">Get Account Info</ion-button>
     </ion-content>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import { Mosaic } from 'nem2-sdk';
 import Nem2Client from '../libs/Nem2Client';
-import { Mosaic, MosaicId } from 'nem2-sdk';
 
 export default Vue.extend({
   name: 'home',
@@ -50,7 +53,6 @@ export default Vue.extend({
   methods: {
     async onClickButton() {
       const a = await Nem2Client.getAccountInfo(this.address);
-      console.log(a);
       this.publicKey = a.publicKey;
       this.mosaics = a.mosaics;
     },
